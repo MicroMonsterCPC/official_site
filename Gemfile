@@ -12,6 +12,7 @@ gem 'bootstrap-sass'
 gem 'carrierwave'
 gem 'rmagick'
 gem 'autoprefixer-rails'
+gem 'therubyracer', platforms: :ruby
 
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
