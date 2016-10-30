@@ -1,0 +1,10 @@
+<h1>Hello<%= session[:user_id] %></h1>
+
+<% @games.each do |game| %>
+  <%= image_tag game.banner_url.thumb.url %>
+  <ol>
+    <li><%= game.title %></li>
+    <li><%= game.create_team %></li>
+    <li><%= game.bio %></li>
+  </ol>
+<% end %>

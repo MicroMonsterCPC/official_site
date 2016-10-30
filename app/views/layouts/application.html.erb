@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Myapp</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> -->
+    <script>
+      $(function() {
+        var h = $(window).height();
+
+        $('#wrap').css('display','none');
+        $('#loader-bg ,#loader').height(h).css('display','block');
+      });
+
+      $(window).load(function () { //全ての読み込みが完了したら実行
+        $('#loader-bg').delay(900).fadeOut(800);
+        $('#loader').delay(600).fadeOut(300);
+        $('#wrap').css('display', 'block');
+      });
+
+      //10秒たったら強制的にロード画面を非表示
+      $(function(){
+        setTimeout('stopload()',10000);
+      });
+
+      function stopload(){
+        $('#wrap').css('display','block');
+        $('#loader-bg').delay(900).fadeOut(800);
+        $('#loader').delay(600).fadeOut(300);
+      }
+    </script>
+  </head>
+
+  <body>
+    <div id="loader-bg">
+      <div id="loader">
+        <img src="http://i.imgur.com/I6QPAk2.gif" width="180" height="180" alt="Now Loading..." />
+      </div>
+    </div>
+    <div id="wrap">
+      <div id="top-bar" class="top-bar">
+        <div class="container">
+          <nav>
+            <p class="title">while_loop</p>
+            <ul>
+              <li><%= link_to "HOME", :root %></li>
+              <li><%= link_to "GAMES", :games %></li>
+              <li><%= link_to "ABOUT", :about %></li>
+              <li><%= link_to "SCHOOL", ENV["SCHOOL_URL"] %></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+    <div class="main">
+      <%= yield %>
+    </div>
+  </body>
+</html>
