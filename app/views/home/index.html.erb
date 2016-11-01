@@ -1,5 +1,17 @@
-<h1>while_loop</h1>
+<!-- スライドショー -->
+<script src="https://unpkg.com/flickity@2.0/dist/flickity.pkgd.min.js"></script>
+<script src="https://unpkg.com/flickity@2.0/dist/flickity.pkgd.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/flickity@2.0/dist/flickity.min.css">
+<link rel="stylesheet" href="https://unpkg.com/flickity@2.0/dist/flickity.css">
+<!-- スライドショー -->
 
+<div class="main-gallery">
+  <img src="images/IMG_7645.jpg" height="667" width="1000" alt="" class="gallery-cell">
+  <img src="images/IMG_7791.jpg" height="667" width="1000" alt="" class="gallery-cell">
+  <img src="images/IMG_7797.jpg" height="667" width="1000" alt="" class="gallery-cell">
+</div>
+
+<h1>while_loop</h1>
 <% @games.each do |game| %>
   <%= image_tag game.banner_url.thumb.url %>
   <ol>
@@ -8,3 +20,20 @@
     <li><%= game.bio %></li>
   </ol>
 <% end %>
+
+<script>
+  $(function(){
+    $('.main-gallery').flickity({
+      initialIndex: 1,
+      cellAlign: 'left',
+      contain: true,
+      wrapAround: true,
+      imagesLoaded: true,
+      draggable: true,
+      prevNextButtons: true,
+      pageDots: true,
+      accessibility: true,
+      autoPlay: 800
+    });
+  });
+</script>
