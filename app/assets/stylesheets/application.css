@@ -14,8 +14,16 @@
  *= require_self
  */
 
-.main{
+body{
+  margin: 0;
+}
+
+main .body{
   margin: 50px 20% 50px 20%;
+}
+
+main .slide{
+  margin: 0;
 }
 
 h1{
@@ -24,6 +32,7 @@ h1{
   border-bottom: 1.5px solid #ccc;
 }
 
+/* 以下ローディング画面スタイル */
 #loader-bg {
   display: none;
   position: fixed;

@@ -6,7 +6,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> -->
+   <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> -->
     <script>
       $(function() {
         var h = $(window).height();
@@ -55,8 +55,8 @@
         </div>
       </div>
     </div>
-    <div class="main">
+    <main>
       <%= yield %>
-    </div>
+      </main>
   </body>
 </html>
