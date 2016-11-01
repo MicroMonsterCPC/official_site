@@ -1,33 +1,34 @@
-<p id="notice"><%= notice %></p>
+<div class="body">
+  <p id="notice"><%= notice %></p>
 
-<h1>Games</h1>
+  <h1>Games</h1>
 
-<%= (link_to 'New Game', new_game_path) if admin? %>
+  <%= (link_to 'New Game', new_game_path) if admin? %>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Create team</th>
-      <th>Bio</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @games.each do |game| %>
+  <table class="table">
+    <thead>
       <tr>
-        <td><%= game.title %></td>
-        <td><%= link_to  game.create_team ,creating_a_game_for_each_team_path(game.create_team) %></td>
-        <td><%= game.bio %></td>
-        <% if admin? %>
-          <td><%= link_to 'Show', game %></td>
-          <td><%= link_to 'Edit', edit_game_path(game) %></td>
-          <td><%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
+        <th>Title</th>
+        <th>Create team</th>
+        <th>Bio</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @games.each do |game| %>
+        <tr>
+          <td><%= game.title %></td>
+          <td><%= link_to  game.create_team ,creating_a_game_for_each_team_path(game.create_team) %></td>
+          <td><%= game.bio %></td>
+          <% if admin? %>
+            <td><%= link_to 'Show', game %></td>
+            <td><%= link_to 'Edit', edit_game_path(game) %></td>
+            <td><%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <br>
+</div>
