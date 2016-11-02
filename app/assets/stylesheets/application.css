@@ -28,8 +28,13 @@ main .slide{
 
 h1{
   padding: 0 0 10px 8px;
+  margin-bottom: 5%;
   font-weight: bold;
   border-bottom: 1.5px solid #ccc;
+}
+
+.body p{
+  margin-left: 20px;
 }
 
 /* 以下ローディング画面スタイル */

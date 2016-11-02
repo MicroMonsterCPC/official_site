@@ -25,7 +25,6 @@ def create
 
   respond_to do |format|
     if @user.save
-      format.html { redirect_to :root , notice: 'User was successfully created.' }
       redirect_to :root
       session[:user_id] = @user.id
     else

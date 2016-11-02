@@ -7,9 +7,9 @@
 
 <div class="slide">
   <div class="main-gallery">
-    <img src="images/IMG_7645.jpg" height="667" width="1000" alt="" class="gallery-cell">
-    <img src="images/IMG_7791.jpg" height="667" width="1000" alt="" class="gallery-cell">
-    <img src="images/IMG_7797.jpg" height="667" width="1000" alt="" class="gallery-cell">
+    <img src="" height="667" width="1000" alt="" class="gallery-cell">
+    <img src="" height="667" width="1000" alt="" class="gallery-cell">
+    <img src="" height="667" width="1000" alt="" class="gallery-cell">
   </div>
 </div>
 
@@ -17,12 +17,16 @@
   <h1>while_loop</h1>
   <p>おっぱいをおっぱいする学園祭</p>
   <h1>現在のゲームごとスコアランキング一覧</h1>
+  <div class="message"></div>
   <% @games.each do |game| %>
-    <%= image_tag game.banner_url.thumb.url %>
+    <h2><%= link_to game.title, game_path(game) %></h2>
+    <div class="game-image">
+      <%= image_tag game.banner_url.thumb.url %>
+    </div>
     <ol>
-      <li><%= game.title %></li>
-      <li><%= game.create_team %></li>
-      <li><%= game.bio %></li>
+      <li>CreateTeam: <%= game.create_team %></li>
+      <li>Bio: <%= game.bio %></li>
+      <li><button class="ballot" value="<%= game.id %>" >一票</button></li>
     </ol>
   <% end %>
 </div>
