@@ -68,6 +68,17 @@ class GamesController < ApplicationController
     end
   end
 
+  def ballot
+    unless session[:ballot]
+      game = Game.find_by(id: params["form_ballot"].to_i)
+      game.update(like: game.like + 1)
+      session[:ballot] = true
+      personal = {'status' => 'Successfully'}; render :json => personal
+    else
+      personal = {'status' => 'Already'}; render :json => personal
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_game

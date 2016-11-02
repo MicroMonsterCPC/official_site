@@ -4,10 +4,11 @@ Rails.application.routes.draw do
   get '/about' => "home#about", as: :about
 
   resources :games
+  post '/ballot.json' => 'games#ballot'
   get '/creating_a_game_for_each_team/:team_name' => 'gemes#creating_a_game_for_each_team', as: :creating_a_game_for_each_team
   resources :users
 
   get '/sign_up' => 'users#new', as: :sign_up
-  get '/sign_in' => 'users#sign_in', as: :sing_in
+  get '/sign_in' => 'users#sign_in', as: :sign_in
   post '/login' => 'users#login', as: :login
 end
