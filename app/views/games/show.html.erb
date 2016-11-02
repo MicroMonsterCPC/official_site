@@ -1,27 +1,25 @@
 <div class="slide"><%= image_tag @game.banner_url.thumb.url %></div>
-<div class="body">
+<div class="body game-show">
   <p id="notice"><%= notice %></p>
 
   <p>
-    <strong>Title:</strong>
-    <%= @game.title %>
+    <h2>【ゲーム名】</h2>
+    <h3><%= @game.title %></h3>
   </p>
 
   <p>
-    <strong>Create team:</strong>
-    <%= @game.create_team %>
+    <h2>【作成者】</h2>
+    <h3><%= @game.create_team %></h3>
   </p>
 
   <p>
-    <strong>Bio:</strong>
-    <%= @game.bio %>
+    <h2>【ゲーム説明】</h2>
+    <h3><%= @game.bio %></h3>
   </p>
 
   <p>
-    <strong>Like:</strong>
-    <%= @game.like %>
+    <h2>【良いね数】</h2>
+    <h3><%= @game.like %></h3>
   </p>
 
-  <%= link_to 'Edit', edit_game_path(@game) %> |
-  <%= link_to 'Back', games_path %>
 </div>
