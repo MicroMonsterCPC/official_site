@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def index
-    @games = Game.all
+    @games = Game.order(:like)
   end
 
   def about
