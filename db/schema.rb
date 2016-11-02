@@ -27,9 +27,9 @@ ActiveRecord::Schema.define(version: 20161025153348) do
     t.string   "title"
     t.string   "create_team"
     t.text     "bio"
-    t.integer  "like"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "like",        default: 1, null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   create_table "scores", force: :cascade do |t|
