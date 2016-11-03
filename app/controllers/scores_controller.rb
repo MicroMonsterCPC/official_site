@@ -1,7 +1,9 @@
 class ScoresController < ApplicationController
 
   def show
-    @game_score = Game.find_by(id: game_id).game_scores.map(&:score).sort_by(&:score).reverse
+    @game = Game.find_by(id: params["id"].to_i)
+    game_score = @game.game_scores.map(&:score).sort_by(&:score).reverse
+    @game_score = Kaminari.paginate_array(game_score).page(params[:page]).per(50)
   end
 
   def new

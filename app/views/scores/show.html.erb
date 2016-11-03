@@ -1,0 +1,22 @@
+<div class="body">
+  <h1>
+    <%= @game.title.to_s %>の全スコアランキング
+    <small class="text-muted">現在このゲームの合計参加者数:  <%= @game.join_people %></small>
+  </h1>
+
+  <div class="alert alert-warning alert-dismissible fade in" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <strong>while_loopのゲームはすべて10,000点が上限に設定されています</strong>
+  </div>
+  <br>
+  
+  <% @game_score.each_with_index do |score, index| %>
+    <div class="score-ranking">
+      <li><h2><%= "#{index + 1}位 #{score.name}さん" %></h2></li>
+      <li><h2><%= score.score %>点</h2></li>
+    </div>
+  <% end %>
+  <%= paginate @game_score %>
+</div>
