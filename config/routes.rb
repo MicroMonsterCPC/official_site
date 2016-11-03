@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root :to => 'home#index'
   get '/about' => "home#about", as: :about
 
+  resources :scores
   resources :games
   post '/ballot.json' => 'games#ballot'
   get '/creating_a_game_for_each_team/:team_name' => 'gemes#creating_a_game_for_each_team', as: :creating_a_game_for_each_team
