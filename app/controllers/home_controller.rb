@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def index
-    @games = Game.order(:like)
+    @games = Game.order(:like).reverse_order
   end
 
   def about
