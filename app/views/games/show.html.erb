@@ -24,6 +24,13 @@
 
   <p>
     <h2>【ハイスコアトップ３】</h2>
+    <% @game_score.each_with_index do |score, index| %>
+      <div class="score-ranking">
+        <h1><%= "#{index + 1}位 #{score.name}さん" %></h1>
+        <h2><%= score.score %>点</h2>
+      </div>
+    <% end %>
+    <%= link_to "すべてのスコアを見る", score_path %>
   </p>
 
 </div>

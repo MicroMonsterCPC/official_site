@@ -8,7 +8,6 @@ class GamesController < ApplicationController
   end
 
   def creating_a_game_for_each_team
-    debug(params[:team_name])
     @games = Game.where(create_team: params[:team_name])
     render 'games/index'
   end
@@ -16,6 +15,8 @@ class GamesController < ApplicationController
   # GET /games/1
   # GET /games/1.json
   def show
+    game_id =  params["id"].to_i
+    @game_score = Game.find_by(id: game_id).game_scores.map(&:score).sort_by(&:score).reverse.first(3)
   end
 
   # GET /games/new
