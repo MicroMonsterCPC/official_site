@@ -1,67 +1,56 @@
-<!-- スライドショー -->
-<script src="https://unpkg.com/flickity@2.0/dist/flickity.pkgd.min.js"></script>
-<script src="https://unpkg.com/flickity@2.0/dist/flickity.pkgd.js"></script>
-<link rel="stylesheet" href="https://unpkg.com/flickity@2.0/dist/flickity.min.css">
-<link rel="stylesheet" href="https://unpkg.com/flickity@2.0/dist/flickity.css">
-<!-- スライドショー -->
-
-<div class="slide">
-  <div class="main-gallery">
-    <img src="" height="667" width="1000" alt="" class="gallery-cell">
-    <img src="" height="667" width="1000" alt="" class="gallery-cell">
-    <img src="" height="667" width="1000" alt="" class="gallery-cell">
-  </div>
-</div>
-
 <div class="body">
 
-  <div class="col-xs-12">
-    <h1 style="font-size: 56px">while_loop</h1>
-    <h3> </h3>
-    <h2><strong>**VR体験会実施中**</strong></h2>
+  <div class="row">
+    <div class="col-xs-12">
+      <h1 style="font-size: 56px">while_loop</h1>
+      <h3> </h3>
+      <h2><strong>**VR体験会実施中**</strong></h2>
+      <%= image_tag "vr.jpg" , :width => "100%" %>
+    </div>
   </div>
+  <br> <br> <br> 
 
   <h1>現在の人気ゲームランキング</h1>
-  <div class="message" style="color:#999; font-size: 36px;text-align:center;"></div>
+  <div class="message"></div>
   <div class="games">
     <% @games.each_with_index do |game, index| %>
 
       <div class="row">
-          <div class="col-md-6">
-            <div class="game-image">
-              <%= image_tag game.banner_url.thumb.url ,:width => "100%" %>
-            </div>
+        <div class="col-md-6">
+          <div class="game-image">
+            <%= image_tag game.banner_url.thumb.url ,:width => "100%" , :class => "img-thumbnail" %>
           </div>
-
-          <div class="col-md-6 game">
-            <ol>
-              <li> <h2><%= "#{index.to_i + 1}位(#{game.like}票):" %>  <%= link_to game.title, game_path(game) %></h2></li>
-              <li><h3><strong>作成者: </strong><%= game.create_team %></h3></li>
-              <li><h3><strong>概要: </strong><%= game.bio %></h3></li>
-              <li><h3><strong>合計挑戦者数: </strong><%= game.join_people %></h3></li>
-              <li><button class="ballot" value="<%= game.id %>" >一票</button></li>
-            </ol>
-          </div>
-
         </div>
 
-      <% end %>
-    </div>
-  </div>
+        <div class="col-md-6 game">
+          <ol>
+            <li> <h2><%= "#{index.to_i + 1}位(#{game.like}票):" %>  <%= link_to game.title, game_path(game) %></h2></li>
+            <li><h3><strong>作成者: </strong><%= game.create_team %></h3></li>
+            <li><h3><strong>概要: </strong><%= game.bio %></h3></li>
+            <li><h3><strong>合計挑戦者数: </strong><%= game.join_people %></h3></li>
+            <li><button class="btn btn-secondary ballot" value="<%= game.id %>" >一票</button></li>
+          </ol>
+        </div>
 
-  <script>
-    $(function(){
-      $('.main-gallery').flickity({
-        initialIndex: 1,
-        cellAlign: 'left',
-        contain: true,
-        wrapAround: true,
-        imagesLoaded: true,
-        draggable: true,
-        prevNextButtons: true,
-        pageDots: true,
-        accessibility: true,
-        autoPlay: 4000
-      });
+      </div>
+
+    <% end %>
+  </div>
+</div>
+
+<script>
+  $(function(){
+    $('.main-gallery').flickity({
+      initialIndex: 1,
+      cellAlign: 'left',
+      contain: true,
+      wrapAround: true,
+      imagesLoaded: true,
+      draggable: true,
+      prevNextButtons: true,
+      pageDots: true,
+      accessibility: true,
+      autoPlay: 4000
     });
-  </script>
+  });
+</script>
