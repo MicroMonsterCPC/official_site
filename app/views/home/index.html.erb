@@ -16,13 +16,13 @@
     <% @games.each_with_index do |game, index| %>
 
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-lg-6">
           <div class="game-image">
-            <%= image_tag game.banner_url.thumb.url ,:width => "100%" , :class => "img-thumbnail" %>
+            <%= image_tag game.banner_url.thumb.url ,:width => "100%" %>
           </div>
         </div>
 
-        <div class="col-md-6 game">
+        <div class="col-lg-6 game">
           <ol>
             <li> <h2><%= "#{index.to_i + 1}位(#{game.like}票):" %>  <%= link_to game.title, game_path(game) %></h2></li>
             <li><h3><strong>作成者: </strong><%= game.create_team %></h3></li>

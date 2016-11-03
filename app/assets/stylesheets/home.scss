@@ -2,24 +2,23 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .games{
-  // margin: 50px;
+  & h3 {
+    // font-size: 100%;
+  }
   & .game-image{
     z-index: -999;
     float: left;
-    margin: 0 10px 0 3%;
   }
   & li{
     list-style: none;
     margin-bottom: 2em;
   }
   & .game{
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-    border-top: thin solid #999 ;
-    border-right: thin solid #999 ;
-    border-bottom: thin solid #999 ;
-
-    background: rgba(153, 153, 153, 0.015);
+    // border: thin solid #999 ;
+    // background: rgba(153, 153, 153, 0.015);
+  }
+  & .row{
+    margin-bottom: 50px;
   }
 }
 
