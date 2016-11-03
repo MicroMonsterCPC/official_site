@@ -16,8 +16,8 @@ ActiveRecord::Schema.define(version: 20161025153348) do
   enable_extension "plpgsql"
 
   create_table "game_scores", force: :cascade do |t|
-    t.integer  "game_id",    null: false
-    t.integer  "score_id",   null: false
+    t.integer  "game_id"
+    t.integer  "score_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -33,9 +33,9 @@ ActiveRecord::Schema.define(version: 20161025153348) do
   end
 
   create_table "scores", force: :cascade do |t|
-    t.integer  "first"
-    t.integer  "second"
-    t.integer  "thread"
+    t.integer  "game_id"
+    t.string   "name"
+    t.integer  "score"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
