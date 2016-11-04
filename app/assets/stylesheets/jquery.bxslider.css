@@ -254,7 +254,7 @@ background:#000; overflow:hidden; display:inline-block; margin:10px 2px 0 2px;
 
 /******************/
 /* 設定 */
-#slider {width:100%; height:100%; min-height:300px; position:relative; z-index: -9999;}
+#slider {width:100%; height:100%; min-height:500px; position:relative; z-index: -9999;}
 .slide-wrap {width:100%; height:300px; position:absolute;}
 
 
