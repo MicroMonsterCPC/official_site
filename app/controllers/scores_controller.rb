@@ -22,10 +22,12 @@ class ScoresController < ApplicationController
   end
 
   def create
-    @score = Score.create(score_params)
-    @game  = Game.find_by(id: score_params["game_id"])
-    GameScore.create(game: @game, score: @score)
-    redirect_to :root
+    if admin?
+      @score = Score.create(score_params)
+      @game  = Game.find_by(id: score_params["game_id"])
+      GameScore.create(game: @game, score: @score)
+      redirect_to :root
+    end
   end
 
   private
