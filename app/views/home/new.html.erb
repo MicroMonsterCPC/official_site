@@ -1,0 +1,11 @@
+<div class="body">
+  <%= form_tag("create", method: "post") do %>
+    <%= label_tag(:index, "IndexText") %>
+    <%= text_area_tag(:index) %>
+    <br>
+    <%= label_tag(:about, "AboutText") %>
+    <%= text_area_tag :about %>
+    <br>
+    <%= submit_tag("登録") %>
+  <% end %>
+</div>

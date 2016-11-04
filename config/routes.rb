@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   root :to => 'home#index'
   get '/about' => "home#about", as: :about
+  get 'homes/new' => "home#new"
+  post 'homes/create' => "home#create"
 
   resources :scores
   resources :games
