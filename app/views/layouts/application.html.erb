@@ -32,19 +32,32 @@
               </div>
             </div>
 
-          <ul class="hidden-xs">
-            <li><%= link_to "HOME", :root %></li>
-            <li><%= link_to "GAMES", :games %></li>
-            <li><%= link_to "ABOUT", :about %></li>
-            <li><%= link_to "SCHOOL", ENV["SCHOOL_URL"] %></li>
-          </ul>
+            <ul class="hidden-xs">
+              <li><%= link_to "HOME", :root %></li>
+              <li><%= link_to "GAMES", :games %></li>
+              <li><%= link_to "ABOUT", :about %></li>
+              <li><%= link_to "SCHOOL", ENV["SCHOOL_URL"] %></li>
+            </ul>
 
-        </nav>
+          </nav>
+        </div>
       </div>
     </div>
-  </div>
-  <main>
-    <%= yield %>
-  </main>
+    <main>
+      <%= yield %>
+    </main>
+    <script>
+      $(function() {
+        WindowHeight = $(window).height();
+        $('.drawr').css('height', WindowHeight); //メニューをWindowの高さいっぱいにする
+        $(document).ready(function() {
+          $('.menu-btn').click(function(){ //クリックしたら
+            console.log("DONE")
+            $('.drawr').animate({width:'toggle'}); //animateで表示・非表示
+            $(this).toggleClass('peke'); //toggleでクラス追加・削除
+          });
+        });
+      });
+    </script>
   </body>
 </html>
