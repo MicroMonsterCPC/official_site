@@ -7,7 +7,14 @@
     <strong>while_loopではすべてのスコアを10,00点に一律させています</strong>
   </div>
   <br>
-  
+  <%= form_tag("/scores/search", method: "post") do %>
+    <%= label_tag(:q, "Search for:") %>
+    <%= text_field_tag :q %>
+    <%= hidden_field_tag :id , @game.id %>
+    <%= submit_tag("Search") %>
+  <% end %>
+  <br>
+
   <% @game_score.each_with_index do |score, index| %>
     <div class="score-ranking">
       <li><h2><%= "#{index + 1}位 #{score.name}さん" %></h2></li>

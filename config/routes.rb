@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   post 'homes/create' => "home#create"
 
   resources :scores
+  post '/scores/search' => 'scores#score_search'
+
   resources :games
   post '/ballot.json' => 'games#ballot'
   get '/creating_a_game_for_each_team/:team_name' => 'gemes#creating_a_game_for_each_team', as: :creating_a_game_for_each_team

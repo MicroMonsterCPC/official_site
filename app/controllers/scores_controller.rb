@@ -14,6 +14,13 @@ class ScoresController < ApplicationController
     end
   end
 
+  def score_search
+    word = params["q"]
+    @game = Game.find_by(id: params["id"].to_i)
+    @game_score  = Score.where(name: word).page(params[:page]).per(50) if word.present?
+    render 'scores/show'
+  end
+
   def create
     @score = Score.create(score_params)
     @game  = Game.find_by(id: score_params["game_id"])
