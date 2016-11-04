@@ -11,6 +11,7 @@ gem 'coffee-rails', '~> 4.2'
 
 gem 'bootstrap-sass'
 gem 'carrierwave'
+gem 'fog'
 gem 'rmagick'
 gem 'autoprefixer-rails'
 gem 'therubyracer', platforms: :ruby
