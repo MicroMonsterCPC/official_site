@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :images
   root :to => 'home#index'
   get '/about' => "home#about", as: :about
   get 'homes/new' => "home#new"
