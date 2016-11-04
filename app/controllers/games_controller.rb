@@ -8,7 +8,6 @@ class GamesController < ApplicationController
   end
 
   def creating_a_game_for_each_team
-    debug(params[:team_name])
     @games = Game.where(create_team: params[:team_name])
     render 'games/index'
   end
@@ -16,6 +15,8 @@ class GamesController < ApplicationController
   # GET /games/1
   # GET /games/1.json
   def show
+    game_id =  params["id"].to_i
+    @game_score = Game.find_by(id: game_id).game_scores.map(&:score).sort_by(&:score).reverse.first(3)
   end
 
   # GET /games/new
@@ -65,6 +66,17 @@ class GamesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to games_url, notice: 'Game was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def ballot
+    unless session[:ballot]
+      game = Game.find_by(id: params["form_ballot"].to_i)
+      game.update(like: game.like + 1)
+      session[:ballot] = true
+      personal = {'status' => 'Successfully'}; render :json => personal
+    else
+      personal = {'status' => 'Already'}; render :json => personal
     end
   end
 

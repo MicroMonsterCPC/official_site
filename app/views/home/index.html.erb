@@ -1,10 +1,67 @@
-<h1>while_loop</h1>
+<!-- スライドショー -->
+<script>
+  $(function(){
+    $('.bxslider').bxSlider({
+      auto:true,
+      slideWidth:640,
+      touchEnabled:true,
+      minSlides:4,
+      maxSlides:4,
+      moveSlides:1,
+      slideMargin:0
+    });
+  })
+</script>
 
-<% @games.each do |game| %>
-  <%= image_tag game.banner_url.thumb.url %>
-  <ol>
-    <li><%= game.title %></li>
-    <li><%= game.create_team %></li>
-    <li><%= game.bio %></li>
-  </ol>
-<% end %>
+
+<div id="slider">
+  <div class="slide-wrap">
+    <ul class="bxslider slide">
+      <li><img src="/images/IMG_3401.JPG" width="100%" /></li>
+      <li><img src="/images/IMG_3389.JPG" width="100%" /></li>
+      <li><img src="/images/IMG_3397.JPG" width="100%" /></li>
+      <li><img src="/images/IMG_3401.JPG" width="100%" /></li>
+    </ul>
+  </div>
+</div>
+<!-- スライドショー -->
+
+<div class="body">
+
+  <div class="row">
+    <div class="col-xs-12">
+      <h1 style="font-size: 56px">while_loop</h1>
+      <h3><%= simple_format(@article.index) %></h3>
+      <h2 class="text-center"><strong class="gradation-vr">**VR体験会実施中**</strong></h2>
+      <%= image_tag "vr.jpg" , :width => "100%" %>
+    </div>
+  </div>
+  <br> <br> <br> 
+
+  <h1>現在の人気ゲームランキング</h1>
+  <div class="message"></div>
+  <div class="games">
+    <% @games.each_with_index do |game, index| %>
+
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="game-image">
+            <%= image_tag game.banner_url.thumb.url ,:width => "100%" %>
+          </div>
+        </div>
+
+        <div class="col-lg-6 game">
+          <ol>
+            <li> <h2><%= "#{index.to_i + 1}位(#{game.like}票):" %>  <%= link_to game.title, game_path(game) %></h2></li>
+            <li><h3><strong>作成者: </strong><%= game.create_team %></h3></li>
+            <li><h3><strong>概要: </strong><%= game.bio %></h3></li>
+            <li><h3><strong>合計挑戦者数: </strong><%= game.join_people %></h3></li>
+            <li><button class="btn btn-secondary ballot" value="<%= game.id %>" >一票</button></li>
+          </ol>
+        </div>
+
+      </div>
+
+    <% end %>
+  </div>
+</div>

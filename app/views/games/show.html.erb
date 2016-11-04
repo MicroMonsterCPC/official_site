@@ -1,24 +1,40 @@
-<p id="notice"><%= notice %></p>
+<div class="slide row">
+  <div class="col-lg-12" style="padding: 0;">
+    <%= image_tag @game.banner_url.thumb.url, :width => '100%' %>
+  </div>
+</div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @game.title %>
-</p>
+<div class="body game-show">
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Create team:</strong>
-  <%= @game.create_team %>
-</p>
+  <p>
+    <h1><%= @game.title %></h1>
+  </p>
 
-<p>
-  <strong>Bio:</strong>
-  <%= @game.bio %>
-</p>
+  <p>
+    <h2>【作成者】</h2>
+    <h3><%= @game.create_team %></h3>
+  </p>
 
-<p>
-  <strong>Like:</strong>
-  <%= @game.like %>
-</p>
+  <p>
+    <h2>【ゲーム説明】</h2>
+    <h3><%= simple_format(@game.bio) %></h3>
+  </p>
 
-<%= link_to 'Edit', edit_game_path(@game) %> |
-<%= link_to 'Back', games_path %>
+  <p>
+    <h2>【いいね数】</h2>
+    <h3><%= @game.like %></h3>
+  </p>
+
+  <p>
+    <h2>【ハイスコアトップ３】</h2>
+    <% @game_score.each_with_index do |score, index| %>
+      <div class="score-ranking">
+        <h1><%= "#{index + 1}位 #{score.name}さん" %></h1>
+        <h2><%= score.score %>点</h2>
+      </div>
+    <% end %>
+    <%= link_to "すべてのスコアを見る", score_path %>
+  </p>
+
+</div>

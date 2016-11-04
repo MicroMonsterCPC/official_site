@@ -5,7 +5,7 @@ class CreateGames < ActiveRecord::Migration[5.0]
       t.string :title
       t.string :create_team
       t.text :bio
-      t.integer :like
+      t.integer :like, null: false, default: 1
 
       t.timestamps
     end

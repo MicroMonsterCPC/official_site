@@ -6,3 +6,7 @@ ADD Gemfile /myapp/Gemfile
 ADD Gemfile.lock /myapp/Gemfile.lock
 RUN bundle install
 ADD . /myapp
+
+EXPOSE  3000
+
+CMD ["rails", "s"]
