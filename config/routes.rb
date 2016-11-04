@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get '/about' => "home#about", as: :about
   get 'homes/new' => "home#new"
   post 'homes/create' => "home#create"
+  get '/admin' => "home#admin"
 
   resources :scores
   post '/scores/search' => 'scores#score_search'

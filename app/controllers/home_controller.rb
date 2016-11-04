@@ -16,6 +16,14 @@ class HomeController < ApplicationController
     end
   end
 
+  def admin
+    if admin?
+      render 'homes/admin'
+    else 
+      redirect_to :root
+    end
+  end
+
   def about
     @article = Article.last
     render 'home/about'
