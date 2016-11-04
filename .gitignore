@@ -8,6 +8,7 @@
 /.bundle
 
 public/uploads
+public/tmp/uploads
 
 # Ignore all logfiles and tempfiles.
 /log/*
