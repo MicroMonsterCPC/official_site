@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def index
-    @images = Image.last(3)
+    @images = Image.last(6)
     @article = Article.last
     @games = Game.order(:like).reverse_order
   end
