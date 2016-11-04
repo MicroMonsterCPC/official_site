@@ -14,7 +14,11 @@ class ImagesController < ApplicationController
 
   # GET /images/new
   def new
-    @image = Image.new
+    if admin?
+      @image = Image.new
+    else
+      redirect_to :root
+    end
   end
 
   # GET /images/1/edit
@@ -24,6 +28,7 @@ class ImagesController < ApplicationController
   # POST /images
   # POST /images.json
   def create
+    redirect_to unless admin?
     @image = Image.new(image_params)
 
     respond_to do |format|

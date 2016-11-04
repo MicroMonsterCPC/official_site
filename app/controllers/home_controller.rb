@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
   def index
+    @images = Image.last(3)
     @article = Article.last
     @games = Game.order(:like).reverse_order
   end
@@ -18,7 +19,7 @@ class HomeController < ApplicationController
 
   def admin
     if admin?
-      render 'homes/admin'
+      render 'home/admin'
     else 
       redirect_to :root
     end
