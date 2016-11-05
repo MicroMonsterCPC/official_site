@@ -22,7 +22,7 @@
 
   <div class="field">
     <%= f.label :name %>
-    <%= f.text_field :name, :class => 'form-control' %>
+    <%= f.text_field :name, :class => 'form-control', :value => "#{session[:admin_score_name]}" %>
   </div>
 
 

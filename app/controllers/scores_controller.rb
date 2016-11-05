@@ -24,6 +24,7 @@ class ScoresController < ApplicationController
   def create
     if admin?
       game_id, name, score = params["game_id"]["game_id"].to_i, params["score"]["name"], params["score"]["score"]
+      debug session[:admin_score_name] = name
       @score = Score.create(game_id: game_id, name: name, score: score)
       @game  = Game.find_by(id: game_id)
       GameScore.create(game: @game, score: @score)
