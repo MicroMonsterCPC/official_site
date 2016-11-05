@@ -32,8 +32,7 @@ class ImagesController < ApplicationController
       debug @image = Image.new(image_params)
       respond_to do |format|
         if @image.save
-          format.html { redirect_to @image, notice: 'Image was successfully created.' }
-          format.json { render :show, status: :created, location: @image }
+          redirect_to :new_image
         else
           format.html { render :new }
           format.json { render json: @image.errors, status: :unprocessable_entity }
