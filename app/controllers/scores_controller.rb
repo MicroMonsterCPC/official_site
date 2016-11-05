@@ -23,8 +23,9 @@ class ScoresController < ApplicationController
 
   def create
     if admin?
-      @score = Score.create(score_params)
-      @game  = Game.find_by(id: score_params["game_id"])
+      game_id, name, score = params["game_id"]["game_id"].to_i, params["score"]["name"], params["score"]["score"]
+      @score = Score.create(game_id: game_id, name: name, score: score)
+      @game  = Game.find_by(id: game_id)
       GameScore.create(game: @game, score: @score)
       redirect_to :new_score
     end
@@ -32,6 +33,6 @@ class ScoresController < ApplicationController
 
   private
   def score_params
-    params.require(:score).permit(:game_id, :name, :score)
+    params.require(:game_id, :score).permit(:game_id, :name, :score)
   end
 end

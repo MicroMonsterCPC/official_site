@@ -12,7 +12,12 @@
 
   <div class="field">
     <%= f.label :game_id %>
-    <%= f.text_field :game_id, :class => 'form-control' %>
+    <%= select :game_id, :game_id, {"Unity Zombie Action 3D" => 1, "KAMADA-ACTION" => 2, "2Dシューティング" => 3, "高橋ゲーム" => 4, "ライトヴァース" => 5 } %>
+  </div>
+
+  <div class="field">
+    <%= f.label :score %>
+    <%= f.text_field :score, :class => 'form-control' %>
   </div>
 
   <div class="field">
@@ -20,10 +25,6 @@
     <%= f.text_field :name, :class => 'form-control' %>
   </div>
 
-  <div class="field">
-    <%= f.label :score %>
-    <%= f.text_field :score, :class => 'form-control' %>
-  </div>
 
   <div class="actions">
     <%= f.submit :class => 'btn btn-default' %>
