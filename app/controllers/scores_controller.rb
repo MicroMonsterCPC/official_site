@@ -17,7 +17,7 @@ class ScoresController < ApplicationController
   def score_search
     word = params["q"]
     @game = Game.find_by(id: params["id"].to_i)
-    @game_score  = Score.where(name: word).page(params[:page]).per(50) if word.present?
+    @game_score  = Score.where(game_id: @game.id, name: word).page(params[:page]).per(50) if word.present?
     render 'scores/show'
   end
 
@@ -26,7 +26,7 @@ class ScoresController < ApplicationController
       @score = Score.create(score_params)
       @game  = Game.find_by(id: score_params["game_id"])
       GameScore.create(game: @game, score: @score)
-      redirect_to :root
+      redirect_to :new_score
     end
   end
 
